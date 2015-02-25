@@ -9,7 +9,11 @@ using namespace std;
 
 int main()
 {
-	Puzzle<int> myPuzzle; //create a puzzle
+	Puzzle<int> myIntPuzzle; //create an int puzzle
 
-	myPuzzle.printPuzzle(); //print puzzle for user
+	myIntPuzzle.printPuzzle(); //print puzzle for user
+
+	Puzzle<char> myCharPuzzle; // char puzzle
+
+	myCharPuzzle.printPuzzle(); //print puzzle for user
 }
