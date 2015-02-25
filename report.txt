@@ -1,0 +1,49 @@
+Mary Connolly
+Lab 5 Report
+
+URL for github: https://github.com/mconnol6/lab5/tree/master
+
+From the user's perspective, the program allows the user to play a game of sudoku which he can input with a text file. The user enters the number of a row and column and the number he would like to place there. He is notified if the number cannot be placed there because the placement goes against sudoku rules. He can quit the game at any time. Finally, when the board is full, he is notified if he solved the puzzle or not.
+
+From the programmer's perspective, the program depends on the templated class
+Puzzle. The program first instantiates a sudoku puzzle, myPuzzle. The constructor 
+asks the user for the name of the file and uses the file input to create a vector
+of vectors of the templated type (in this case, int). Then, another puzzle,
+originalPuzzle, is instantiated and set equal to myPuzzle. The puzzle is
+displayed with the overloaded operator << . Then, a while loop is entered
+which iterates while the user does not decide to quit and the board is not
+full (checked using the member function isBoardFull). Within the loop, the
+function addNumber is used to add a number to the board. addNumber asks the
+user for three inputs: the row, column, and number to place. The function
+checkIf1to9 checks that each input is a number from 1 to 9 and asks for new
+input if it is not. Then, the member function setCell is used to add the
+number two the board if two conditions are met. First, the original puzzle is
+checked to make sure that the cell is 0 in the original puzzle. Second, the
+function checkCell is used to make sure that the number is not already in the
+row, column, or section of the board.
+
+Next, the user is asked if he would like to quit. If he does not want to quit,
+the loop iterates again.
+
+After the while loop is exited, the function checkIfWon is used to check if
+the user solved the puzzle. checkIfWon iterates through each cell of the board
+to make sure that it is not equal to 0 and that it is the only one in its row,
+column, and section. The user is notified of whether he won or lost.
+
+I verified the output of the program by testing two boards. First, I used the
+board that was given in the lab and tested inputs. The program correctly
+notifies the user when a number cannot be placed because it is already in the
+row, column, or section. Additionally, when the user quits, it correctly
+notifies the user that the puzzle is not complete. Additionally, I used a used
+a completed version of the board as input, and the program correctly notifies
+the user that the puzzle has been solved. Therefore, the checkIfWon function
+works correctly.
+
+Using the templated class worked very well with a constructor which asks the
+user for file input. Although my program works correctly, I feel that I could have improved my program by creating a derived NumberPuzzle class rather than creating the game in a main file. By using a NumberPuzzle class, the main file would be much shorter and more readable, and it might be easier to create a similar worduku class if needed for next week's lab.
+
+Generally, part 3 was structured with the templated puzzle class and a .cpp
+file which creates a traditional sudoku game. I added very few additional
+member functions to the templated class so that it can also be used for
+worduku puzzles. The .cpp file includes functions which implement a
+traditional sudoku game.
